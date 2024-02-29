@@ -10,9 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./includes/push_swap.h"
 
-int	main(int argc, char **argv)
+static int	verify_args()
 {
+	return (0);
+}
+
+int	main(void)
+{
+	verify_args();
 	return (0);
 }

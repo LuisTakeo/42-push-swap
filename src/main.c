@@ -30,6 +30,8 @@ int	verify_arg(char *arg)
 	i = 0;
 	while (arg[i] && is_space(arg[i]))
 		i++;
+	if (!arg[i])
+		return (1);
 	if (arg[i] == '+' || arg[i] == '-')
 		i++;
 	while (arg[i] == '0')

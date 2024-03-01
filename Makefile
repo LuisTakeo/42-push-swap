@@ -23,14 +23,21 @@ libft:
 	@make all bonus new_fun -C $(LIBFT) $(FLAGS) --no-print-directory
 
 clean:
-	rm -rf obj
+	@echo "Removendo objects..."
+	@rm -rf obj
+	@echo "Pronto!"
 
 fclean: clean
-	rm -f push_swap
+	@echo "Removendo executáveis..."
+	@rm -f push_swap
+	@echo "Feito!"
+
+re: fclean all
 
 $(OBJS_FOLDER)%.o:$(SRC_FOLDER)%.c $(HEADER)
-	mkdir -p obj
+	@mkdir -p $(OBJS_FOLDER)
 	@$(CC) $(FLAGS) -o $@ -c $< && echo "Compilando: $(notdir $<)"
 
 $(NAME): $(OBJS)
 	@$(CC) $(OBJS) $(LIBS) $(INCLUDES) -o $(NAME)
+	@echo "Compilando executável $@"

@@ -12,13 +12,55 @@
 
 #include "./includes/push_swap.h"
 
-static int	verify_args()
+void	ft_print_error(char *msg)
 {
+	ft_putendl_fd(msg, STDERR_FILENO);
+	exit(EXIT_FAILURE);
+}
+
+int	is_space(char c)
+{
+	return (c == ' ' || (c >= 9 && c <= 13));
+}
+
+int	verify_arg(char *arg)
+{
+	int	i;
+
+	i = 0;
+	while (arg[i] && is_space(arg[i]))
+		i++;
+	if (arg[i] == '+' || arg[i] == '-')
+		i++;
+	while (arg[i] == '0')
+		i++;
+	while (ft_isdigit(arg[i]))
+		i++;
+	if (arg[i])
+		return (1);
+	return (0);
+
+}
+
+static int	verify_args(int argc, char **argv)
+{
+	int	i;
+
+	if (argc == 1)
+		ft_print_error("Quantidade de argumentos inválida.");
+	i = 1;
+	while (argv[i])
+	{
+		if (verify_arg(argv[i]))
+			ft_print_error("Argumento inválido.");
+		ft_printf("%s\n", argv[i++]);
+
+	}
 	return (0);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	verify_args();
+	verify_args(argc, argv);
 	return (0);
 }

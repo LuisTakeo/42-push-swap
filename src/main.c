@@ -23,7 +23,7 @@ int	is_space(char c)
 	return (c == ' ' || (c >= 9 && c <= 13));
 }
 
-int	verify_arg(char *arg)
+int	is_numeric(char *arg)
 {
 	int	i;
 
@@ -41,10 +41,9 @@ int	verify_arg(char *arg)
 	if (arg[i])
 		return (1);
 	return (0);
-
 }
 
-static int	verify_args(int argc, char **argv)
+void	verify_args(int argc, char **argv)
 {
 	int	i;
 
@@ -53,12 +52,11 @@ static int	verify_args(int argc, char **argv)
 	i = 1;
 	while (argv[i])
 	{
-		if (verify_arg(argv[i]))
+		if (is_numeric(argv[i]))
 			ft_print_error("Argumento inválido.");
-		ft_printf("%s\n", argv[i++]);
-
+		ft_printf("%s\n", argv[i]);
+		i++;
 	}
-	return (0);
 }
 
 int	main(int argc, char **argv)

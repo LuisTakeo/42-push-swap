@@ -17,18 +17,25 @@
 # include "../../libs/libft/ft_printf/includes/ft_printf.h"
 # include "../../libs/libft/gnl/includes/get_next_line.h"
 
-typedef struct s_data
+typedef struct s_db_list
 {
-	int				val;
-	int				pos;
-	struct s_data	*next;
-	struct s_data	*prev;
-}	t_data;
+	int					val;
+	int					pos;
+	struct s_db_list	*next;
+	struct s_db_list	*prev;
+}	t_db_list;
 
 typedef struct s_stack
 {
-	t_data	*stack_a;
-	t_data	*stack_b;
+	t_db_list	*stack_a;
+	t_db_list	*stack_b;
 }	t_stack;
+
+t_db_list	*ft_dblst_new(int val);
+void		ft_dblstadd_back(t_db_list **lst, t_db_list *new);
+void		ft_dblstadd_front(t_db_list **lst, t_db_list *new);
+t_db_list	*ft_dblstfirst(t_db_list *lst);
+t_db_list	*ft_dblstlast(t_db_list *lst);
+void		ft_push(t_db_list **lst_i, t_db_list **lst_j);
 
 #endif

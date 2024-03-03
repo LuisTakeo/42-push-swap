@@ -10,7 +10,8 @@ NAME := push_swap
 HEADER := src/includes/push_swap.h
 
 SRC_FOLDER := src/
-SRC_FILES := $(addsuffix .c, main)
+SRC_FILES := $(addsuffix .c, main ft_dblst_new ft_dblstadd_back ft_dblstadd_front) \
+			 $(addsuffix .c, ft_dblstfirst ft_dblstlast ft_push)
 SRC := $(addprefix $(SRC_FOLDER), $(SRC_FILES))
 
 OBJS_FOLDER := obj/

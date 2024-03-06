@@ -6,7 +6,7 @@
 #    By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/13 18:38:35 by tpaim-yu          #+#    #+#              #
-#    Updated: 2024/01/10 19:56:07 by tpaim-yu         ###   ########.fr        #
+#    Updated: 2024/03/06 19:10:48 by tpaim-yu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,8 @@ SRC = ft_isdigit.c \
 				 ft_strtrim.c \
 				 ft_itoa.c \
 				 ft_split.c \
-				 ft_putnull_fd.c
+				 ft_putnull_fd.c \
+				 ft_atol.c
 
 SRC_BONUS = ft_lstnew_bonus.c \
 				 ft_lstadd_front_bonus.c \

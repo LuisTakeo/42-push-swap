@@ -12,7 +12,7 @@
 
 #include "./includes/push_swap.h"
 
-void	reverse_rotate(t_db_list **lst)
+void	ft_reverse_rotate(t_db_list **lst)
 {
 	t_db_list	*temp;
 	t_db_list	*prev;

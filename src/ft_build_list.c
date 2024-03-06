@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_build_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 21:13:42 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2024/03/05 21:13:42 by tpaim-yu         ###   ########.fr       */
+/*   Created: 2024/03/06 19:47:08 by tpaim-yu          #+#    #+#             */
+/*   Updated: 2024/03/06 19:47:08 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-void	ft_swap(t_db_list **lst)
+t_db_list	*ft_build_list(int argc, char **argv)
 {
-	t_db_list	*temp;
-	t_db_list	*n;
+	t_db_list	*lst;
+	int			i;
+	int			value;
 
-	if (!lst || !(*lst))
-		return ;
-	temp = *lst;
-	n = temp->next;
-	if (!n)
-		return ;
-	temp->next = n->next;
-	temp->prev = n;
-	n->next = temp;
-	n->prev = NULL;
-	*lst = n;
-	if (temp->next)
-		temp->next->prev = temp;
+	lst = NULL;
+	i = 1;
+	while (i < argc)
+	{
+		value = ft_atoi(argv[i]);
+		ft_dblstadd_back(&lst, ft_dblst_new(value));
+		i++;
+	}
+	ft_put_order(&lst);
+	return (lst);
 }

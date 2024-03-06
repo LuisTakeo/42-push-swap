@@ -68,6 +68,7 @@ int	main(int argc, char **argv)
 	t_db_list	*list;
 
 	verify_args(argc, argv);
+	// TODO validação de números repetidos
 	list = ft_build_list(argc, argv);
 	stacks = ft_init_stack(list, NULL);
 	// teste impressão

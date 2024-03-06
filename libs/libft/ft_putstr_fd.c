@@ -6,7 +6,7 @@
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:46:19 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2024/01/10 19:51:20 by tpaim-yu         ###   ########.fr       */
+/*   Updated: 2024/03/05 21:15:26 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,3 @@ int	ft_putstr_fd(const char *str, int fd)
 		len += ft_putchar_fd(str[i], fd);
 	return (len);
 }
-

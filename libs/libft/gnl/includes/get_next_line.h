@@ -6,7 +6,7 @@
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 03:33:30 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2024/01/18 17:16:35 by tpaim-yu         ###   ########.fr       */
+/*   Updated: 2024/03/05 21:15:09 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-
 
 typedef struct s_list_c
 {

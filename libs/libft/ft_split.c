@@ -6,7 +6,7 @@
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:57:59 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2023/10/30 18:49:51 by tpaim-yu         ###   ########.fr       */
+/*   Updated: 2024/03/05 21:17:26 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,6 @@ char	**ft_split(char const *s, char c)
 		return (arr_str);
 	}
 	if (!arr_str)
-	{
 		free(arr_str);
-		// return (arr_str);
-	}
 	return (ft_alloc_words(s, arr_str, c, count_words));
 }

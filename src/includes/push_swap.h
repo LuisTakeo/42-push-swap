@@ -37,7 +37,8 @@ void		ft_dblstadd_front(t_db_list **lst, t_db_list *new);
 t_db_list	*ft_dblstfirst(t_db_list *lst);
 t_db_list	*ft_dblstlast(t_db_list *lst);
 void		ft_push(t_db_list **lst_i, t_db_list **lst_j);
-void        rotate(t_db_list **lst);
-void        reverse_rotate(t_db_list **lst);
+void		rotate(t_db_list **lst);
+void		reverse_rotate(t_db_list **lst);
+void		swap(t_db_list **lst);
 
 #endif

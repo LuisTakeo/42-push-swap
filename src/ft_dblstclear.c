@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dblstfirst.c                                    :+:      :+:    :+:   */
+/*   ft_dblstclear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/02 17:45:59 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2024/03/02 17:45:59 by tpaim-yu         ###   ########.fr       */
+/*   Created: 2024/03/07 16:45:48 by tpaim-yu          #+#    #+#             */
+/*   Updated: 2024/03/07 16:45:48 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-t_db_list	*ft_dblstfirst(t_db_list *lst)
+void	ft_dblstclear(t_db_list **lst)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->prev)
-		lst = lst->prev;
-	return (lst);
+	t_db_list	*temp;
+
+	temp = *lst;
+	while (temp)
+	{
+		temp = (*lst)->next;
+		free(*lst);
+		if (temp)
+			temp->prev = NULL;
+		*lst = temp;
+	}
 }

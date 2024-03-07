@@ -12,12 +12,6 @@
 
 #include "./includes/push_swap.h"
 
-void	ft_print_error(char *msg)
-{
-	ft_putendl_fd(msg, STDERR_FILENO);
-	exit(EXIT_FAILURE);
-}
-
 int	is_space(char c)
 {
 	return (c == ' ' || (c >= 9 && c <= 13));
@@ -45,7 +39,8 @@ int	is_numeric(char *arg)
 
 void	verify_args(int argc, char **argv)
 {
-	int	i;
+	int		i;
+	long	nbr;
 
 	if (argc == 1)
 		ft_print_error("Quantidade de argumentos inválida.");
@@ -53,14 +48,22 @@ void	verify_args(int argc, char **argv)
 	while (argv[i])
 	{
 		if (is_numeric(argv[i]))
-			ft_print_error("Argumento inválido.");
-		ft_printf("%s\n", argv[i]);
+			ft_print_error("Argumento(s) inválido(s). Insira somente números.");
+		nbr = ft_atol(argv[i]);
+		if (nbr > INT_MAX || nbr < INT_MIN)
+			ft_print_error("Argumento maior ou menor que um INT.");
 		i++;
 	}
 }
 
 int	main(int argc, char **argv)
 {
+	t_stack		*stacks;
+	t_db_list	*list;
+
 	verify_args(argc, argv);
+	list = ft_build_list(argc, argv);
+	stacks = ft_init_stack(list, NULL);
+	ft_clear_stack(stacks);
 	return (0);
 }

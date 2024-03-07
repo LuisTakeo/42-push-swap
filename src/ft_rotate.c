@@ -12,18 +12,17 @@
 
 #include "./includes/push_swap.h"
 
-void        rotate(t_db_list **lst)
+void	ft_rotate(t_db_list **lst)
 {
-    t_db_list   *temp;
-    t_db_list   *last;
+	t_db_list	*temp;
 
-    if (!lst || !(*lst))
-        return ;
-    temp = ft_dblstfirst(*lst);
-    if (!temp->next)
-        return ;
-    ft_dblstadd_back(lst, temp);
-    *lst = (*lst)->next;
-    (*lst)->prev = NULL;
-    temp->next = NULL;
+	if (!lst || !(*lst))
+		return ;
+	temp = ft_dblstfirst(*lst);
+	if (!temp->next)
+		return ;
+	ft_dblstadd_back(lst, temp);
+	*lst = (*lst)->next;
+	(*lst)->prev = NULL;
+	temp->next = NULL;
 }

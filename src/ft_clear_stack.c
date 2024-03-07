@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dblstfirst.c                                    :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/02 17:45:59 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2024/03/02 17:45:59 by tpaim-yu         ###   ########.fr       */
+/*   Created: 2024/03/07 16:38:12 by tpaim-yu          #+#    #+#             */
+/*   Updated: 2024/03/07 16:38:12 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-t_db_list	*ft_dblstfirst(t_db_list *lst)
+void	ft_clear_stack(t_stack *stack)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->prev)
-		lst = lst->prev;
-	return (lst);
+	if (!stack)
+		return ;
+	if (stack->stack_a)
+		ft_dblstclear(&stack->stack_a);
+	if (stack->stack_b)
+		ft_dblstclear(&stack->stack_b);
+	free (stack);
 }

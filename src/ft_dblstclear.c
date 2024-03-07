@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_build_list.c                                    :+:      :+:    :+:   */
+/*   ft_dblstclear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 19:47:08 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2024/03/06 19:47:08 by tpaim-yu         ###   ########.fr       */
+/*   Created: 2024/03/07 16:45:48 by tpaim-yu          #+#    #+#             */
+/*   Updated: 2024/03/07 16:45:48 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-t_db_list	*ft_build_list(int argc, char **argv)
+void	ft_dblstclear(t_db_list **lst)
 {
-	t_db_list	*lst;
-	int			i;
-	int			value;
+	t_db_list	*temp;
 
-	lst = NULL;
-	i = 1;
-	while (i < argc)
+	temp = *lst;
+	while (temp)
 	{
-		value = ft_atoi(argv[i]);
-		ft_dblstadd_back(&lst, ft_dblst_new(value));
-		i++;
+		temp = (*lst)->next;
+		free(*lst);
+		if (temp)
+			temp->prev = NULL;
+		*lst = temp;
 	}
-	if (ft_verify_duplicate(&lst))
-	{
-		ft_dblstclear(&lst);
-		ft_print_error("Números duplicados.");
-	}
-	ft_put_order(&lst);
-	return (lst);
 }

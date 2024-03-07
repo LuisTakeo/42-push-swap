@@ -12,12 +12,6 @@
 
 #include "./includes/push_swap.h"
 
-void	ft_print_error(char *msg)
-{
-	ft_putendl_fd(msg, STDERR_FILENO);
-	exit(EXIT_FAILURE);
-}
-
 int	is_space(char c)
 {
 	return (c == ' ' || (c >= 9 && c <= 13));
@@ -68,18 +62,8 @@ int	main(int argc, char **argv)
 	t_db_list	*list;
 
 	verify_args(argc, argv);
-	// TODO validação de números repetidos
 	list = ft_build_list(argc, argv);
 	stacks = ft_init_stack(list, NULL);
-	// teste impressão
-	while (list->next)
-	{
-		ft_printf("%d\n", list->pos);
-		list = list->next;
-	}
-	ft_printf("%d\n", list->pos);
-	list = stacks->stack_a;
-	ft_printf("Começo: %d\n", list->pos);
-	free(stacks);
+	ft_clear_stack(stacks);
 	return (0);
 }

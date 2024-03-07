@@ -14,7 +14,7 @@ SRC_FILES := $(addsuffix .c, main ft_dblst_new ft_dblstadd_back ft_dblstadd_fron
 			 $(addsuffix .c, ft_dblstfirst ft_dblstlast ft_push ft_swap ft_rotate) \
 			 $(addsuffix .c, ft_reverse_rotate ft_print_movement ft_put_order ft_init_stack) \
 			 $(addsuffix .c, ft_build_list ft_clear_stack ft_dblstclear ft_print_error) \
-			 $(addsuffix .c, ft_verify_duplicate)
+			 $(addsuffix .c, ft_verify_duplicate ft_dblstsize ft_sort ft_sort_two)
 SRC := $(addprefix $(SRC_FOLDER), $(SRC_FILES))
 
 OBJS_FOLDER := obj/

@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_stack.c                                    :+:      :+:    :+:   */
+/*   ft_is_ordered.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 19:34:26 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2024/03/06 19:34:26 by tpaim-yu         ###   ########.fr       */
+/*   Created: 2024/03/15 17:09:30 by tpaim-yu          #+#    #+#             */
+/*   Updated: 2024/03/15 17:09:30 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-t_stack	*ft_init_stack(t_db_list *lst_a, t_db_list *lst_b)
+int	ft_is_ordered(t_db_list	*lst)
 {
-	t_stack	*stacks;
+	int			i;
+	t_db_list	*temp;
 
-	stacks = malloc(sizeof (t_stack) * 1);
-	stacks->stack_a = lst_a;
-	stacks->stack_b = lst_b;
-	stacks->size_a = ft_dblstsize(stacks->stack_a);
-	stacks->size_b = ft_dblstsize(stacks->stack_b);
-	stacks->max_pos = stacks->size_a;
-	return (stacks);
+	i = 1;
+	temp = lst;
+	while (temp)
+	{
+		if (temp->pos != i)
+			return (0);
+		temp = temp->next;
+		i++;
+	}
+	return (1);
 }

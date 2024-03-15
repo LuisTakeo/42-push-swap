@@ -32,6 +32,8 @@ typedef struct s_stack
 	t_db_list	*stack_b;
 	int			size_a;
 	int			size_b;
+	int			min_pos_a;
+	int			max_pos;
 }	t_stack;
 
 // double linked list functions
@@ -59,8 +61,10 @@ void		ft_print_movement(t_stack *stacks, char *str);
 // errors and validations
 void		ft_print_error(char *msg);
 int			ft_verify_duplicate(t_db_list **lst);
+int			ft_is_ordered(t_db_list	*lst);
 // Sorting
 void		ft_sort(t_stack *stacks);
 void		ft_sort_two(t_stack *stacks);
+void		ft_sort_three(t_stack *stacks);
 
 #endif

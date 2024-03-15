@@ -14,10 +14,14 @@
 
 void	ft_sort(t_stack *stacks)
 {
+	if (ft_is_ordered(stacks->stack_a))
+	{
+		return ;
+	}
 	if (stacks->size_a == 2)
 		ft_sort_two(stacks);
 	if (stacks->size_a == 3)
-		ft_printf("Sort 3\n");
+		ft_sort_three(stacks);
 	if (stacks->size_a > 3)
 		ft_printf("Sort others\n");
 }

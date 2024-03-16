@@ -14,18 +14,13 @@
 
 void	ft_sort_others(t_stack *stacks)
 {
-	// put all values - 3 in B
-	// order 3 in A
-	// put positions where elements in B try to fit in A
-	// verify the cost
-	// t_db_list	*temp;
-
 	while (stacks->size_a > 3)
 	{
 		ft_push(&stacks->stack_a, &stacks->stack_b);
 		ft_print_movement(stacks, "pa");
 		stacks->size_a = ft_dblstsize(stacks->stack_a);
 	}
+	stacks->size_b = ft_dblstsize(stacks->stack_b);
 	ft_sort_three(stacks);
 	ft_order_b_in_a(stacks);
 }

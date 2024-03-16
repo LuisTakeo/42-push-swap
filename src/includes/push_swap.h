@@ -22,6 +22,8 @@ typedef struct s_db_list
 {
 	int					val;
 	int					pos;
+	int					target;
+	int					cost;
 	struct s_db_list	*next;
 	struct s_db_list	*prev;
 }	t_db_list;
@@ -56,6 +58,7 @@ void		ft_reverse_rotate(t_db_list **lst);
 void		ft_swap(t_db_list **lst);
 // put position
 void		ft_put_order(t_db_list **lst);
+int			ft_find_min_value(t_db_list *lst);
 // print movements
 void		ft_print_movement(t_stack *stacks, char *str);
 // errors and validations
@@ -66,5 +69,8 @@ int			ft_is_ordered(t_db_list	*lst);
 void		ft_sort(t_stack *stacks);
 void		ft_sort_two(t_stack *stacks);
 void		ft_sort_three(t_stack *stacks);
+void		ft_sort_others(t_stack *stacks);
+void		ft_order_b_in_a(t_stack *stacks);
+void		ft_put_target(t_stack *stacks);
 
 #endif

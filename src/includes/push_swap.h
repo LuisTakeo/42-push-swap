@@ -72,5 +72,7 @@ void		ft_sort_three(t_stack *stacks);
 void		ft_sort_others(t_stack *stacks);
 void		ft_order_b_in_a(t_stack *stacks);
 void		ft_put_target(t_stack *stacks);
+void		ft_movement_in_a(t_stack *stacks);
+void		ft_movement_in_b(t_stack *stacks);
 
 #endif

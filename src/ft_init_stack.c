@@ -19,5 +19,8 @@ t_stack	*ft_init_stack(t_db_list *lst_a, t_db_list *lst_b)
 	stacks = malloc(sizeof (t_stack) * 1);
 	stacks->stack_a = lst_a;
 	stacks->stack_b = lst_b;
+	stacks->size_a = ft_dblstsize(stacks->stack_a);
+	stacks->size_b = ft_dblstsize(stacks->stack_b);
+	stacks->max_pos = stacks->size_a;
 	return (stacks);
 }

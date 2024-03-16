@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dbllstnew.c                                     :+:      :+:    :+:   */
+/*   ft_sort_two.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/02 16:53:24 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2024/03/02 16:53:24 by tpaim-yu         ###   ########.fr       */
+/*   Created: 2024/03/07 20:26:36 by tpaim-yu          #+#    #+#             */
+/*   Updated: 2024/03/07 20:26:36 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-t_db_list	*ft_dblst_new(int val)
+void	ft_sort_two(t_stack *stacks)
 {
-	t_db_list	*new;
+	t_db_list	*temp;
 
-	new = malloc(sizeof(t_db_list));
-	if (!new)
-		return (NULL);
-	new->val = val;
-	new->pos = 0;
-	new->cost = 0;
-	new->target = 0;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+	temp = stacks->stack_a->next;
+	if (stacks->stack_a->pos > temp->pos)
+	{
+		ft_swap(&stacks->stack_a);
+		ft_print_movement(stacks, "sa");
+	}
 }

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dbllstnew.c                                     :+:      :+:    :+:   */
+/*   ft_dblstsize.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/02 16:53:24 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2024/03/02 16:53:24 by tpaim-yu         ###   ########.fr       */
+/*   Created: 2024/03/07 19:59:06 by tpaim-yu          #+#    #+#             */
+/*   Updated: 2024/03/07 19:59:06 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-t_db_list	*ft_dblst_new(int val)
+int	ft_dblstsize(t_db_list *lst)
 {
-	t_db_list	*new;
+	t_db_list	*temp;
+	int			i;
 
-	new = malloc(sizeof(t_db_list));
-	if (!new)
-		return (NULL);
-	new->val = val;
-	new->pos = 0;
-	new->cost = 0;
-	new->target = 0;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+	i = 0;
+	temp = lst;
+	while (temp)
+	{
+		i++;
+		temp = temp->next;
+	}
+	return (i);
 }

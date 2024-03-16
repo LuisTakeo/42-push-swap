@@ -64,6 +64,9 @@ int	main(int argc, char **argv)
 	verify_args(argc, argv);
 	list = ft_build_list(argc, argv);
 	stacks = ft_init_stack(list, NULL);
+	// iniciar
+	if (stacks->size_a > 1)
+		ft_sort(stacks);
 	ft_clear_stack(stacks);
 	return (0);
 }

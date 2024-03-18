@@ -36,6 +36,11 @@ typedef struct s_stack
 	int			size_b;
 	int			min_pos_a;
 	int			max_pos;
+	int			target_a;
+	int			target_b;
+	int			pos_a;
+	int			pos_b;
+
 }	t_stack;
 
 // double linked list functions
@@ -76,6 +81,8 @@ void		ft_put_target(t_stack *stacks);
 void		ft_movement_in_a(t_stack *stacks);
 void		ft_movement_in_b(t_stack *stacks);
 void		ft_order_a(t_stack *stacks);
+void		ft_find_target(t_stack *stacks);
+void		ft_movement_in_both(t_stack *stacks);
 // utils
 void		ft_free_split(char **split);
 

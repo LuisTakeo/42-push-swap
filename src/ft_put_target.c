@@ -23,6 +23,7 @@ static void	ft_search_target(t_stack *stacks, t_db_list **stack_b)
 	temp_b = *stack_b;
 	cost = 0;
 	half = stacks->size_a / 2;
+	temp_b->target = 0;
 	while (temp_a)
 	{
 		if (temp_a->pos > temp_b->pos && (temp_b->target < temp_b->pos
@@ -36,7 +37,7 @@ static void	ft_search_target(t_stack *stacks, t_db_list **stack_b)
 	}
 	if (temp_b->target < temp_b->pos)
 		temp_b->target = stacks->min_pos_a;
-	if (temp_b->cost >= half)
+	if (temp_b->cost > half)
 		temp_b->cost = stacks->size_a - temp_b->cost;
 }
 

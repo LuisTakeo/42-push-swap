@@ -18,6 +18,8 @@ void	ft_order_b_in_a(t_stack *stacks)
 	{
 		stacks->min_pos_a = ft_find_min_value(stacks->stack_a);
 		ft_put_target(stacks);
+		ft_find_target(stacks);
+		ft_movement_in_both(stacks);
 		ft_movement_in_b(stacks);
 		ft_movement_in_a(stacks);
 		ft_push(&stacks->stack_b, &stacks->stack_a);

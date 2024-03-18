@@ -6,7 +6,7 @@
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:57:59 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2024/03/05 21:17:26 by tpaim-yu         ###   ########.fr       */
+/*   Updated: 2024/03/18 19:29:59 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ char	**ft_split(char const *s, char c)
 	int		count_words;
 	char	**arr_str;
 
+	if (!s || !*s)
+		return (NULL);
 	count_words = ft_count_words(s, c);
 	arr_str = (char **)malloc(sizeof(char *) * (count_words + 1));
 	if (!count_words || !s)

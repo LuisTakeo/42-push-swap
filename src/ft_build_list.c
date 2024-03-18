@@ -20,7 +20,7 @@ static void	ft_is_duplicated(t_db_list **lst)
 	if (ft_verify_duplicate(&temp))
 	{
 		ft_dblstclear(&temp);
-		ft_print_error("Error. Números duplicados.");
+		ft_print_error("Error");
 	}
 }
 

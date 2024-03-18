@@ -1,29 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_order_b_in_a.c                                  :+:      :+:    :+:   */
+/*   ft_put_a_in_b.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 19:05:30 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2024/03/15 19:05:30 by tpaim-yu         ###   ########.fr       */
+/*   Created: 2024/03/17 18:33:29 by tpaim-yu          #+#    #+#             */
+/*   Updated: 2024/03/17 18:33:29 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-void	ft_order_b_in_a(t_stack *stacks)
+static int	ft_is_minor_half(t_db_list *stack, int half)
 {
-	while (stacks->stack_b)
+	t_db_list	*temp;
+
+	temp = stack;
+	while (temp)
 	{
-		stacks->min_pos_a = ft_find_min_value(stacks->stack_a);
-		ft_put_target(stacks);
-		ft_find_target(stacks);
-		ft_movement_in_both(stacks);
-		ft_movement_in_b(stacks);
-		ft_movement_in_a(stacks);
-		ft_push(&stacks->stack_b, &stacks->stack_a);
-		ft_print_movement(stacks, "pa");
+		if (temp->pos < half)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
+}
+
+void	ft_put_a_in_b(t_stack *stacks)
+{
+	int	half;
+
+	half = stacks->size_a / 2;
+	while (ft_is_minor_half(stacks->stack_a, half))
+	{
+		if (stacks->stack_a->pos < half)
+		{
+			ft_push(&stacks->stack_a, &stacks->stack_b);
+			ft_print_movement(stacks, "pb");
+		}
+		else
+		{
+			ft_rotate(&stacks->stack_a);
+			ft_print_movement(stacks, "ra");
+		}
 		stacks->size_a = ft_dblstsize(stacks->stack_a);
 		stacks->size_b = ft_dblstsize(stacks->stack_b);
 	}

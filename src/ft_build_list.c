@@ -12,25 +12,41 @@
 
 #include "./includes/push_swap.h"
 
+static void	ft_is_duplicated(t_db_list **lst)
+{
+	t_db_list	*temp;
+
+	temp = *lst;
+	if (ft_verify_duplicate(&temp))
+	{
+		ft_dblstclear(&temp);
+		ft_print_error("Error. Números duplicados.");
+	}
+}
+
 t_db_list	*ft_build_list(int argc, char **argv)
 {
 	t_db_list	*lst;
 	int			i;
 	int			value;
+	int			j;
+	char		**splited;
 
 	lst = NULL;
 	i = 1;
 	while (i < argc)
 	{
-		value = ft_atoi(argv[i]);
-		ft_dblstadd_back(&lst, ft_dblst_new(value));
+		splited = ft_split(argv[i], ' ');
+		j = -1;
+		while (splited[++j])
+		{
+			value = ft_atoi(splited[j]);
+			ft_dblstadd_back(&lst, ft_dblst_new(value));
+		}
+		ft_free_split(splited);
 		i++;
 	}
-	if (ft_verify_duplicate(&lst))
-	{
-		ft_dblstclear(&lst);
-		ft_print_error("Números duplicados.");
-	}
+	ft_is_duplicated(&lst);
 	ft_put_order(&lst);
 	return (lst);
 }

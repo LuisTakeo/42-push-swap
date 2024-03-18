@@ -20,19 +20,26 @@ int	is_space(char c)
 int	is_numeric(char *arg)
 {
 	int	i;
+	int	size;
 
 	i = 0;
+	size = 0;
 	while (arg[i] && is_space(arg[i]))
 		i++;
 	if (!arg[i])
 		return (1);
 	if (arg[i] == '+' || arg[i] == '-')
 		i++;
+	if (!arg[i])
+		return (1);
 	while (arg[i] == '0')
 		i++;
 	while (ft_isdigit(arg[i]))
+	{
 		i++;
-	if (arg[i])
+		size++;
+	}
+	if (arg[i] || size > 10)
 		return (1);
 	return (0);
 }
@@ -41,17 +48,26 @@ void	verify_args(int argc, char **argv)
 {
 	int		i;
 	long	nbr;
+	char	**splited;
+	int		j;
 
 	if (argc == 1)
 		ft_print_error("Quantidade de argumentos inválida.");
 	i = 1;
 	while (argv[i])
 	{
-		if (is_numeric(argv[i]))
-			ft_print_error("Argumento(s) inválido(s). Insira somente números.");
-		nbr = ft_atol(argv[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN)
-			ft_print_error("Argumento maior ou menor que um INT.");
+		j = 0;
+		splited = ft_split(argv[i], ' ');
+		while (splited[j])
+		{
+			if (is_numeric(splited[j]))
+				ft_print_error("Error. Insira somente números válidos.");
+			nbr = ft_atol(splited[j]);
+			if (nbr > INT_MAX || nbr < INT_MIN)
+				ft_print_error("Error. Argumento maior ou menor que um INT.");
+			j++;
+		}
+		ft_free_split(splited);
 		i++;
 	}
 }
@@ -64,7 +80,6 @@ int	main(int argc, char **argv)
 	verify_args(argc, argv);
 	list = ft_build_list(argc, argv);
 	stacks = ft_init_stack(list, NULL);
-	// iniciar
 	if (stacks->size_a > 1)
 		ft_sort(stacks);
 	ft_clear_stack(stacks);

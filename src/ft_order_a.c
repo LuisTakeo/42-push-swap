@@ -1,39 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_movement_in_a.c                                 :+:      :+:    :+:   */
+/*   ft_order_a.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/16 20:08:34 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2024/03/16 20:08:34 by tpaim-yu         ###   ########.fr       */
+/*   Created: 2024/03/17 19:07:19 by tpaim-yu          #+#    #+#             */
+/*   Updated: 2024/03/17 19:07:19 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-static void	ft_rotate_to_top_a(t_stack *stacks, t_db_list *target)
+static int	ft_search_min(t_db_list *stack, int min)
 {
-	while (stacks->stack_a->pos != target->target)
+	t_db_list	*temp;
+	int			i;
+
+	temp = stack;
+	i = 0;
+	while (temp)
+	{
+		if (temp->pos == min)
+			return (i);
+		i++;
+		temp = temp->next;
+	}
+	return (i);
+}
+
+static void	ft_rotate_a(t_stack *stacks, int target)
+{
+	while (stacks->stack_a->pos != target)
 	{
 		ft_rotate(&stacks->stack_a);
 		ft_print_movement(stacks, "ra");
 	}
 }
 
-static void	ft_reverse_to_top_a(t_stack *stacks, t_db_list *target)
+static void	ft_reverse_a(t_stack *stacks, int target)
 {
-	while (stacks->stack_a->pos != target->target)
+	while (stacks->stack_a->pos != target)
 	{
 		ft_reverse_rotate(&stacks->stack_a);
 		ft_print_movement(stacks, "rra");
 	}
 }
 
-void	ft_movement_in_a(t_stack *stacks)
+void	ft_order_a(t_stack *stacks)
 {
-	if (stacks->pos_a > (stacks->size_a / 2))
-		ft_reverse_to_top_a(stacks, stacks->stack_b);
-	else if (stacks->pos_a > 0)
-		ft_rotate_to_top_a(stacks, stacks->stack_b);
+	int			i;
+
+	i = ft_search_min(stacks->stack_a, 1);
+	if (i > stacks->size_a / 2)
+		ft_reverse_a(stacks, 1);
+	else if (i > 0)
+		ft_rotate_a(stacks, 1);
 }

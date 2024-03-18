@@ -14,7 +14,6 @@
 
 void	ft_order_b_in_a(t_stack *stacks)
 {
-	t_db_list	*temp;
 	while (stacks->stack_b)
 	{
 		stacks->min_pos_a = ft_find_min_value(stacks->stack_a);
@@ -22,13 +21,8 @@ void	ft_order_b_in_a(t_stack *stacks)
 		ft_movement_in_b(stacks);
 		ft_movement_in_a(stacks);
 		ft_push(&stacks->stack_b, &stacks->stack_a);
-		ft_print_movement(stacks, "pb");
+		ft_print_movement(stacks, "pa");
+		stacks->size_a = ft_dblstsize(stacks->stack_a);
+		stacks->size_b = ft_dblstsize(stacks->stack_b);
 	}
-	temp = stacks->stack_a;
-	while (temp)
-	{
-		ft_printf("Values: %d\n", temp->pos);
-		temp = temp->next;
-	}
-
 }

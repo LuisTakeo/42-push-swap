@@ -70,9 +70,13 @@ void		ft_sort(t_stack *stacks);
 void		ft_sort_two(t_stack *stacks);
 void		ft_sort_three(t_stack *stacks);
 void		ft_sort_others(t_stack *stacks);
+void		ft_put_a_in_b(t_stack *stacks);
 void		ft_order_b_in_a(t_stack *stacks);
 void		ft_put_target(t_stack *stacks);
 void		ft_movement_in_a(t_stack *stacks);
 void		ft_movement_in_b(t_stack *stacks);
+void		ft_order_a(t_stack *stacks);
+// utils
+void		ft_free_split(char **split);
 
 #endif

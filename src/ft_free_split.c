@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dblstclear.c                                    :+:      :+:    :+:   */
+/*   ft_free_split.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 16:45:48 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2024/03/07 16:45:48 by tpaim-yu         ###   ########.fr       */
+/*   Created: 2024/03/17 20:06:32 by tpaim-yu          #+#    #+#             */
+/*   Updated: 2024/03/17 20:06:32 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-void	ft_dblstclear(t_db_list **lst)
+void	ft_free_split(char **split)
 {
-	t_db_list	*temp;
+	int	i;
 
-	temp = *lst;
-	while (temp)
+	if (!split || !*split)
+		return ;
+	i = 0;
+	while (split[i])
 	{
-		temp = (*lst)->next;
-		free(*lst);
-		if (temp)
-			temp->prev = NULL;
-		*lst = temp;
+		free (split[i]);
+		i++;
 	}
+	free(split);
 }

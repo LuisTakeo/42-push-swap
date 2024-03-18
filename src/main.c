@@ -12,18 +12,20 @@
 
 #include "./includes/push_swap.h"
 
-int	is_space(char c)
+static int	is_space(char c)
 {
 	return (c == ' ' || (c >= 9 && c <= 13));
 }
 
-int	is_numeric(char *arg)
+static int	is_numeric(char *arg)
 {
 	int	i;
 	int	size;
 
 	i = 0;
 	size = 0;
+	if (!arg[i])
+		return (1);
 	while (arg[i] && is_space(arg[i]))
 		i++;
 	if (!arg[i])
@@ -44,7 +46,13 @@ int	is_numeric(char *arg)
 	return (0);
 }
 
-void	verify_args(int argc, char **argv)
+static void	is_empty(char **split)
+{
+	if (!split)
+		ft_print_error("Error");
+}
+
+static void	verify_args(int argc, char **argv)
 {
 	int		i;
 	long	nbr;
@@ -52,19 +60,20 @@ void	verify_args(int argc, char **argv)
 	int		j;
 
 	if (argc == 1)
-		ft_print_error("Quantidade de argumentos inválida.");
+		ft_print_error("Error");
 	i = 1;
 	while (argv[i])
 	{
 		j = 0;
 		splited = ft_split(argv[i], ' ');
+		is_empty(splited);
 		while (splited[j])
 		{
 			if (is_numeric(splited[j]))
-				ft_print_error("Error. Insira somente números válidos.");
+				ft_print_error("Error");
 			nbr = ft_atol(splited[j]);
 			if (nbr > INT_MAX || nbr < INT_MIN)
-				ft_print_error("Error. Argumento maior ou menor que um INT.");
+				ft_print_error("Error");
 			j++;
 		}
 		ft_free_split(splited);

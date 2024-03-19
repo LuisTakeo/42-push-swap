@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 18:06:19 by tpaim-yu          #+#    #+#             */
-/*   Updated: 2024/02/27 18:06:19 by tpaim-yu         ###   ########.fr       */
+/*   Created: 2024/03/19 18:55:49 by tpaim-yu          #+#    #+#             */
+/*   Updated: 2024/03/19 18:55:49 by tpaim-yu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "./includes/checker_bonus.h"
 
 static int	is_space(char c)
 {
@@ -89,8 +89,7 @@ int	main(int argc, char **argv)
 	verify_args(argc, argv);
 	list = ft_build_list(argc, argv);
 	stacks = ft_init_stack(list, NULL);
-	if (stacks->size_a > 1)
-		ft_sort(stacks);
+	ft_sort(stacks);
 	ft_clear_stack(stacks);
 	return (0);
 }
